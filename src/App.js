@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import {Component} from 'react'
+import rootdata  from "./data";
+import Li from "./selectdemo/demoJs/li";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+//props: 在调用子组件时，可以将要传给子组件的值添加在子组件的属性上，在子组件可以通过props接收
+class App extends Component{
+    render(){
+        return  <ul id="menu">
+            {Object.keys(rootdata).map((item,index)=>{
+                return <Li 
+                key={index}
+                title={item}
+                data={rootdata[item]}
+                ></Li>
+            })}
+    </ul>
+    }
 }
 
 export default App;
